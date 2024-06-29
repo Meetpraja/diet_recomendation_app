@@ -13,14 +13,14 @@ class Mybutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Colors.green,
+      splashColor: Colors.green[900],
       borderRadius: BorderRadius.circular(12),
       onTap: onTap,
       child: Container(
         height: 50,
         width: 300,
         decoration: BoxDecoration(
-          color : Colors.green[400],
+          color : Colors.green[900],
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(

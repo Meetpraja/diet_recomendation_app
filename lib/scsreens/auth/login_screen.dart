@@ -19,65 +19,65 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
         backgroundColor: Color.fromARGB(255, 31, 38, 24),
-        title: const Text('Login'),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        height: screenHeight,
-        width: screenWidth,
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 31, 38, 24),
-          // image: const DecorationImage(
-          //   image: AssetImage('assets/back.jpg'),
-          //   fit: BoxFit.cover,
-          //   opacity: 0.7,
-          //   colorFilter: ColorFilter.mode(Colors.black12, BlendMode.)
-          // ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Step Back Into Your \nHealthy Living',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: screenHeight * 0.1,
-            ),
-            Mytextfield(hint: 'Email', controller: emailController),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            Mytextfield(hint: 'Password', controller: passwordController),
-            SizedBox(
-              height: screenHeight * 0.06,
-            ),
-            Authbutton(
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('login tapped')));
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen()));
-              },
-              title: 'login',
-            ),
-            Row(
-              children: [
-                Text('don\'t have an account ?',
-                style: TextStyle(fontSize: 20,color: Colors.white),),
-                const Spacer(),
-                TextButton(
-                  onPressed: (){}, child: Text('Login',style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white),
-                ),),
-              ],
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          height: screenHeight,
+          width: screenWidth,
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 31, 38, 24),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text(
+                'Step Back Into Your \nHealthy Living',
+                style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
+              ),
+              Form(child: Column(
+                children: [
+                  SizedBox(
+                    height: screenHeight * 0.1,
+                  ),
+                  Mytextfield(hint: 'Email', controller: emailController,isSecure: false,),
+                  SizedBox(
+                    height: screenHeight * 0.02,
+                  ),
+                  Mytextfield(hint: 'Password', controller: passwordController,isSecure: true,),
+                  SizedBox(
+                    height: screenHeight * 0.06,
+                  ),
+                ],
+              )),
+              Authbutton(
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('login tapped')));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen()));
+                },
+                title: 'login',
+              ),
+              Row(
+                children: [
+                  const Text('don\'t have an account ?',
+                  style: TextStyle(fontSize: 20,color: Colors.white70),),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: (){}, child: const Text('Login',style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white70),
+                  ),),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -14,37 +14,39 @@ class SignupLogin extends StatelessWidget {
 
 
     return Scaffold(
-      body: Container(
-          decoration: BoxDecoration(
-            color: Colors.green[100]
-          ),
-          height: screenheight,
-          width: screenwidth,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: screenheight/6,
-              ),
-              Text(
-                  'Fuel Your Life \nWith the Right Diet',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green[900],
+      body: SingleChildScrollView(
+        child: Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 31, 38, 24)
+            ),
+            height: screenheight,
+            width: screenwidth,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: screenheight/6,
                 ),
-              ),
-              SizedBox(height: screenheight*0.5,),
-              Mybutton(title: 'Login', onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));
-              }),
-              SizedBox(height: screenheight*0.02,),
-              Mybutton(title: 'Signup', onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignupScreen()));
-              })
-            ],
+                Text(
+                    'Fuel Your Life \nWith the Right Diet',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                  ),
+                ),
+                SizedBox(height: screenheight*0.4,),
+                Mybutton(title: 'Login', onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginScreen()));
+                }),
+                SizedBox(height: screenheight*0.02,),
+                Mybutton(title: 'Signup', onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignupScreen()));
+                })
+              ],
+            ),
           ),
-        ),
+      ),
 
     );
   }
